@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 稳定入口与产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f3f0;
+            color: #1e1e1e;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(135deg, #0f1a2b 0%, #1a2a3f 50%, #0e1a28 100%);
+            color: #e9eef3;
+            padding: 5rem 2rem 4.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #5d8fb0, #b3aa87, #5d8fb0);
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 350;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #c7d4e0;
+            font-weight: 300;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #3b5770;
+            color: #e0e8f0;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-top: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* 正文区 */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 5rem;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 450;
+            color: #1f2e3f;
+            border-left: 5px solid #5d8fb0;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #2c3a47;
+            margin-bottom: 2.8rem;
+            background: #ffffffdd;
+            padding: 1.6rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .intro-text a {
+            color: #2b6b8f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            border-bottom-color: #2b6b8f;
+            color: #1a4a66;
+        }
+
+        /* 亮点卡片区 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 1.8rem 1.6rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #ece7e0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1f2e3f;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-card p {
+            color: #3f4d5a;
+            font-size: 0.95rem;
+        }
+
+        .feature-card .emoji-bg {
+            display: inline-block;
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* 建议 & 场景 */
+        .advice-block {
+            background: #ffffffec;
+            padding: 2rem 2rem;
+            border-radius: 24px;
+            margin: 2.8rem 0;
+            border: 1px solid #e3dbd1;
+        }
+
+        .advice-block h3 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            color: #1f2e3f;
+            margin-bottom: 1rem;
+        }
+
+        .advice-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .advice-block li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #efebe6;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .advice-block li:last-child {
+            border: none;
+        }
+
+        .advice-block li::before {
+            content: '·';
+            color: #5d8fb0;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        /* 可信提示 */
+        .trust-note {
+            background: #e8edf3;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            font-size: 0.98rem;
+            color: #2b3c4b;
+            border-left: 6px solid #b3aa87;
+        }
+
+        .trust-note strong {
+            color: #1f2e3f;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin-top: 3.5rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd6cd;
+            padding: 1.2rem 0;
+        }
+
+        .faq-item:last-child {
+            border: none;
+        }
+
+        .faq-item h4 {
+            font-weight: 500;
+            color: #1f2e3f;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
+            color: #42515e;
+            font-size: 0.95rem;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            color: #6f7d89;
+            font-size: 0.9rem;
+            border-top: 1px solid #e1dad2;
+            background: #faf8f5;
+        }
+
+        .footer a {
+            color: #2b6b8f;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3.5rem 1.2rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 2rem 1rem 3rem;
+            }
+
+            .feature-card {
+                padding: 1.4rem;
+            }
+
+            .advice-block {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>华体会 · 稳定入口</h1>
+        <p>一个更贴近日常的访问方式，让浏览回归简单与可靠。</p>
+        <span class="badge">产品说明页</span>
+    </section>
+
+    <div class="content">
+
+        <!-- 摘要 / 介绍 -->
+        <div class="intro-text">
+            <p>作为长期被使用的服务，<a href="https://zhindex-hth.com.cn">华体会</a> 所提供的入口始终保持着清晰与直接。它不追求花哨的修饰，而是将重点放在如何让每一位使用者都能快速理解它的结构，并找到自己需要的内容。下面从几个侧面，概括它的特点与使用场景。</p>
+        </div>
+
+        <!-- 亮点卡片 -->
+        <h2 class="section-title">亮点速览</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="emoji-bg">📌</div>
+                <h3>结构清晰</h3>
+                <p>页面层级与模块划分明确，减少不必要的跳转与冗余信息，让每一步操作都合乎预期。</p>
+            </div>
+            <div class="feature-card">
+                <div class="emoji-bg">⚙️</div>
+                <h3>稳定响应</h3>
+                <p>日常访问与信息调取都能保持较顺畅的体验，适合固定使用习惯的用户。</p>
+            </div>
+            <div class="feature-card">
+                <div class="emoji-bg">🔗</div>
+                <h3>入口统一</h3>
+                <p>不需要记忆多个地址，通过 <a href="https://zhindex-hth.com.cn" style="color:#2b6b8f; border-bottom:1px solid #2b6b8f; text-decoration:none;">华体会</a> 即可进入主页面，后续内容都在同一站点体系内。</p>
+            </div>
+            <div class="feature-card">
+                <div class="emoji-bg">🧭</div>
+                <h3>低干扰</h3>
+                <p>界面设计偏向实用，不堆砌弹窗或复杂动效，更适合需要安静浏览的场景。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 -->
+        <div class="advice-block">
+            <h3>使用建议</h3>
+            <ul>
+                <li>第一次使用时，建议从首页整体浏览一遍，了解各功能区块的位置与命名逻辑。</li>
+                <li>日常需要信息查询或操作时，直接通过 <a href="https://zhindex-hth.com.cn">华体会</a> 进入，保持书签或固定标签页能提升效率。</li>
+                <li>如果页面加载异常，可以稍后刷新或检查网络连接，通常可以恢复正常访问。</li>
+                <li>有多个设备时，注意同步登录状态，避免因缓存不一致导致重复验证。</li>
+            </ul>
+        </div>
+
+        <!-- 可信但克制的说明 -->
+        <div class="trust-note">
+            <strong>关于访问的说明：</strong>
+            本页面所描述的入口与功能均基于当前版本的使用体验。任何产品都会随迭代有所调整，但 <a href="https://zhindex-hth.com.cn">华体会</a> 的基本定位与稳定入口属性始终维持。建议以实际页面为准，本介绍仅作为参考。
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h2 class="section-title">常见疑问摘要</h2>
+
+            <div class="faq-item">
+                <h4>这个入口与其他访问方式有什么不同？</h4>
+                <p>它更强调直接与简洁，没有中间跳转页或额外引导，适合希望快速进入主题的用户。</p>
+            </div>
+            <div class="faq-item">
+                <h4>是否需要在特定时间段使用？</h4>
+                <p>没有严格的时间限制，不过某些内容或功能可能在非高峰时段响应更快，全时段均可正常访问。</p>
+            </div>
+            <div class="faq-item">
+                <h4>如果遇到页面显示异常怎么办？</h4>
+                <p>首先检查浏览器版本与网络状态，其次可以清除缓存后重试。一般来说，大部分问题可以通过刷新解决。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>本页面为产品介绍用途 · 相关内容仅供参考 · 访问以实际页面为准</p>
+        <p style="margin-top:0.4rem;"><a href="https://zhindex-hth.com.cn">华体会</a> — 稳定入口，从简而行</p>
+    </div>
+
+</body>
+</html>
