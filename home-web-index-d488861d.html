@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · 500彩票网知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f4f5f8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #2c2e33;
+      line-height: 1.6;
+      padding: 1.8rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-wrapper {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* hero头 — 简净目录感 */
+    .hero {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #d8dce3;
+      padding-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #1c1e22;
+    }
+
+    .hero .subhead {
+      font-size: 1rem;
+      color: #5b5f6a;
+      margin-top: 0.4rem;
+      border-left: 3px solid #b0b6c0;
+      padding-left: 1rem;
+      font-style: normal;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.2rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e8eaee;
+      padding: 1.6rem 1.5rem 1.8rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      font-weight: 450;
+      color: #1f2127;
+      margin-bottom: 0.9rem;
+      border-bottom: 1px dashed #d7dbe2;
+      padding-bottom: 0.4rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #3e4149;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #8e939f;
+    }
+
+    .card .meta-note {
+      background: #f2f4f8;
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #4e525c;
+      border-left: 2px solid #ccd0d9;
+    }
+
+    /* 说明区 — 特殊卡片 占整行 */
+    .info-wide {
+      background: #fafbfc;
+      border: 1px solid #e1e4e9;
+      border-radius: 14px;
+      padding: 1.8rem 2rem;
+      margin: 1rem 0 1.8rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .info-wide h3 {
+      font-weight: 430;
+      font-size: 1.2rem;
+      color: #2a2d34;
+      margin-bottom: 0.6rem;
+    }
+
+    .info-wide p {
+      color: #3d4048;
+      max-width: 80ch;
+    }
+
+    .info-wide a {
+      color: #2d5a8c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b3c4d9;
+    }
+
+    .info-wide a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 提示区 & FAQ 混合 */
+    .tip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .tip-item {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e7e9ee;
+      padding: 1rem 1.2rem;
+      flex: 1 1 200px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.02);
+    }
+
+    .tip-item .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7c828f;
+      margin-bottom: 0.25rem;
+    }
+
+    .tip-item .content {
+      font-size: 0.93rem;
+      color: #373b43;
+    }
+
+    .tip-item .content a {
+      color: #2d5a8c;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 0.5px;
+      text-decoration-color: #bcc6d4;
+    }
+
+    .tip-item .content a:hover {
+      text-decoration-color: #2d5a8c;
+    }
+
+    /* 相关信息区 (faq摘要) */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e8eaee;
+      padding: 1.6rem 1.8rem;
+      margin: 1rem 0 2.5rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+    }
+
+    .faq-mini h3 {
+      font-weight: 440;
+      font-size: 1.1rem;
+      color: #24272e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .faq-mini h3::before {
+      content: "⁉";
+      font-size: 1.3rem;
+      opacity: 0.7;
+    }
+
+    .faq-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .faq-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #edf0f4;
+      padding: 0.5rem 0 0.6rem;
+    }
+
+    .faq-item .q {
+      font-weight: 470;
+      font-size: 0.95rem;
+      color: #1f2229;
+    }
+
+    .faq-item .a {
+      font-size: 0.9rem;
+      color: #535861;
+      margin-top: 0.1rem;
+    }
+
+    .faq-item .a a {
+      color: #2d5a8c;
+      text-decoration: none;
+      border-bottom: 1px dotted #bbc4d2;
+    }
+
+    .faq-item .a a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 底部 */
+    .footer-note {
+      border-top: 1px solid #d8dce3;
+      padding-top: 1.2rem;
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #6a707d;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-note span {
+      opacity: 0.7;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e5ec;
+      margin: 1.2rem 0;
+    }
+
+    .inline-link {
+      color: #2d5a8c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b0bed0;
+    }
+
+    .inline-link:hover {
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <div class="hero">
+    <h1>☰ 知识库 · 简明指南</h1>
+    <div class="subhead">从访问提醒到场景索引 — 关于 500彩票网 的整理笔记</div>
+  </div>
+
+  <!-- 说明区：访问提醒 + 背景 -->
+  <div class="info-wide">
+    <h3>📌 访问提醒与背景</h3>
+    <p>本页作为信息索引用途，不替代官方服务。<a href="https://home-web-500.com" class="inline-link">500彩票网</a> 提供基于数字彩、竞技彩等多种玩法的信息平台。使用前建议了解当地相关法规，合理规划浏览行为。以下卡片汇集了常见场景、提示及典型问题摘要，供快速参考。</p>
+  </div>
+
+  <!-- 两列卡片：目录感布局 (特点/场景) -->
+  <div class="card-grid">
+    <div class="card">
+      <h2>▸ 特点速览</h2>
+      <ul>
+        <li>数字彩、竞彩、足彩等多个分类</li>
+        <li>数据图表与历史开奖辅助参考</li>
+        <li>社区讨论与资讯聚合</li>
+        <li>个人账户记录及方案管理</li>
+      </ul>
+      <div class="meta-note">上述基于公开信息整理，功能以实际页面为准。</div>
+    </div>
+    <div class="card">
+      <h2>▸ 常见使用场景</h2>
+      <ul>
+        <li>查询历史开奖号码与走势</li>
+        <li>参与合买或跟单方案</li>
+        <li>查看赛程、赔率变化</li>
+        <li>使用过滤工具筛选号码</li>
+      </ul>
+      <div class="meta-note">部分功能需注册登录，请妥善保管账户信息。</div>
+    </div>
+  </div>
+
+  <!-- 提示区：混合访问提醒 -->
+  <div class="tip-group">
+    <div class="tip-item">
+      <div class="label">⚠️ 注意</div>
+      <div class="content">不向未成年人提供服务。请确认您已年满法定年龄。</div>
+    </div>
+    <div class="tip-item">
+      <div class="label">📎 提醒</div>
+      <div class="content">任何平台都存在资金风险，请理性对待，量力而行。</div>
+    </div>
+    <div class="tip-item">
+      <div class="label">🔗 参考</div>
+      <div class="content">如需了解平台服务，可阅读 <a href="https://home-web-500.com">500彩票网</a> 的帮助与公告。</div>
+    </div>
+    <div class="tip-item">
+      <div class="label">🧾 提示</div>
+      <div class="content">网络彩票存在地区限制，使用前请确认当地政策。</div>
+    </div>
+  </div>
+
+  <!-- 相关信息区: FAQ摘要 -->
+  <div class="faq-mini">
+    <h3>FAQ 摘要 · 常见疑问</h3>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="q">开奖数据多久更新？</div>
+        <div class="a">通常开奖后数分钟内更新，以官方发布为准。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">忘记密码如何找回？</div>
+        <div class="a">通过绑定手机或邮箱重置，具体见登录页指引。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">账户安全建议？</div>
+        <div class="a">开启二次验证，不共用密码，定期修改。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">是否支持匿名访问？</div>
+        <div class="a">浏览公开信息无需登录，部分功能需注册。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">如何联系客服？</div>
+        <div class="a">站内在线客服或官方邮箱（请认准 <a href="https://home-web-500.com">500彩票网</a> 标识）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">方案跟单有什么风险？</div>
+        <div class="a">跟单方案不保中，发起人历史成绩仅供参考。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 额外的相关信息区块（简） -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0 0.8rem;">
+    <span style="background: #e9ecf1; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #49505c;">⏺ 信息更新于2025年</span>
+    <span style="background: #e9ecf1; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #49505c;">⏺ 非官方页面 · 知识库风格</span>
+  </div>
+
+  <hr>
+
+  <div class="footer-note">
+    <span>本页为介绍性索引，内容仅供参考。</span>
+    <span><a href="https://home-web-500.com" style="color: #4d5875; text-decoration: none; border-bottom: 1px dotted #aeb6c4;">500彩票网</a> · 简明知识库</span>
+  </div>
+
+  <!-- 自然嵌入链接: 句子中出现的第三个链接 (不重复计数) -->
+  <p style="margin-top: 1.4rem; font-size: 0.9rem; color: #555b67; text-align: center; max-width: 85%;">
+    如希望了解更多细节，可自行查阅 <a href="https://home-web-500.com" style="color: #2d5a8c; text-decoration: none; border-bottom: 1px dotted #b3c4d9;">500彩票网</a> 上的帮助文档及公告。本站不收集任何个人信息。
+  </p>
+</div>
+</body>
+</html>
