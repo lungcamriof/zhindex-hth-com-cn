@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当导航成为索引 | ng导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(145deg, #fce8d9 0%, #f8d7be 50%, #f2c8ae 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: #fffcf7;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px -12px rgba(160, 100, 60, 0.25), 0 4px 12px rgba(0,0,0,0.04);
+            padding: 2.8rem 2.8rem 3.2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 1.8rem 1.4rem 2.4rem;
+                border-radius: 24px;
+            }
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #4d2e1b;
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #7a5f4c;
+            margin-bottom: 2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #eddccc;
+            font-weight: 400;
+        }
+
+        .subhead em {
+            font-style: normal;
+            background: #f3e1d0;
+            padding: 0.1rem 0.5rem;
+            border-radius: 6px;
+            color: #563e2b;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #4a3322;
+            margin-top: 2.6rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            color: #3f3126;
+            margin-bottom: 1.3rem;
+            font-size: 1.05rem;
+        }
+
+        .pull-quote {
+            background: #f7ede4;
+            border-left: 5px solid #c68f6b;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0;
+            border-radius: 0 16px 16px 0;
+            color: #4a3423;
+            font-size: 1.08rem;
+            font-weight: 450;
+        }
+
+        .pull-quote a {
+            color: #7b4d2e;
+            text-decoration: none;
+            font-weight: 500;
+            padding-bottom: 1px;
+            border-bottom: 2px solid #dbb99b;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .pull-quote a:hover {
+            border-bottom-color: #7a4a2a;
+            color: #4d2b16;
+        }
+
+        .insight-box {
+            background: #fff2e8;
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.6rem 0 2rem;
+            display: inline-block;
+            width: auto;
+            box-shadow: inset 0 1px 3px rgba(130, 70, 30, 0.04);
+        }
+
+        .insight-box strong {
+            color: #633c22;
+            font-weight: 600;
+        }
+
+        .insight-box a {
+            color: #7a4b2c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #dbb18f;
+            transition: border-color 0.15s;
+        }
+
+        .insight-box a:hover {
+            border-bottom-color: #7a4928;
+        }
+
+        .faq-note {
+            background: #f3e6db;
+            border-radius: 28px;
+            padding: 1.2rem 1.6rem;
+            margin-top: 2.4rem;
+            font-size: 0.98rem;
+            color: #3d2e21;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 0.6rem;
+        }
+
+        .faq-note .label {
+            font-weight: 600;
+            color: #5a3a25;
+            background: #e6d3c1;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+        }
+
+        .faq-note a {
+            color: #6f442b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid #cba583;
+        }
+
+        .faq-note a:hover {
+            border-bottom-color: #6f3f20;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e6d6c5;
+            margin: 2.8rem 0 1rem;
+            opacity: 0.6;
+        }
+
+        .closing-line {
+            font-size: 1rem;
+            color: #6b5543;
+            text-align: right;
+            margin-top: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>导航即索引</h1>
+        <div class="subhead">一个关于整理、发现与路径的笔记 · <em>ng导航</em> 侧记</div>
+
+        <p>在信息密集的网络里，我们每天都会经过大量链接、站点与服务。真正能留下来的，往往不是最花哨的入口，而是那些经过筛选、归类，并持续维护的索引。导航的价值不在于「指路」，而在于它提供了一种框架——把散落的点连成线，再织成可回溯的地图。</p>
+
+        <p>关键词「ng导航」背后对应的，其实是一套关于信息组织的实践思路。它不追求收录所有，而是专注于把一部分内容梳理清楚，让访问者可以快速定位到真正需要的方向。好的导航，应该像一份有注释的目录：简洁、准确、有层次。</p>
+
+        <div class="pull-quote">
+            「导航不是目的地，但它是通向目的地最可靠的起点。」—— 这也是<strong>ng导航</strong>所遵循的原则：用索引代替搜索，用分类代替遗忘。
+        </div>
+
+        <h2>从整理到发现</h2>
+        <p>大多数人使用导航，最初只是为了「到达」。但使用时间长了会发现，一个结构良好的导航站点，本身就是在帮助人做发现。相邻的条目、并列的类别、偶尔出现的备注——这些细节会在不经意间拓宽视野。导航不只是工具，它也是一种隐性的内容策展。</p>
+
+        <p>例如，<a href="https://ng-dh.com" style="color:#7a4b2c; text-decoration:none; font-weight:500; border-bottom:2px solid #dbb18f;">ng导航</a> 在分类时并不仅仅按照字母或热度排列，而是试图根据主题的内在关联来分组。这种编排方式，让浏览本身成为一种学习——你会在一个分类下看到意料之外的资源，也会因为相邻条目而理解某个领域的基本结构。</p>
+
+        <div class="insight-box">
+            <strong>一个观察：</strong> 很多人在提到导航时，只关注「好不好找」，却忽略了「值不值得看」。真正有效的导航，需要在便捷与信息密度之间找到平衡。<a href="https://ng-dh.com">ng导航</a> 在这方面的尝试，值得持续关注。
+        </div>
+
+        <h2>场景：从日常到专项</h2>
+        <p>对普通用户来说，导航最常见的场景是「快速跳转」——从书签栏或搜索页切换到目标站点。但如果我们把视野拉远一点，导航其实可以服务于更具体的需求：想了解某个技术栈的生态，可以看相关工具链的导航分支；想收集某个领域的阅读资源，可以找对应的内容聚合入口。</p>
+
+        <p>这就是为什么 <a href="https://ng-dh.com" style="color:#7a4b2c; text-decoration:none; font-weight:500;">ng导航</a> 在维护时，会不断根据实际使用反馈调整分类颗粒度。有些类别会拆得更细，有些则合并为更宽泛的集合——一切以实用为准，而不是为了追求分类上的完美对称。</p>
+
+        <div class="faq-note">
+            <span class="label">FAQ 摘要</span>
+            <span>Q：导航站点会更新频率如何？</span>
+            <span>A：资源类按季度检视，工具类随版本变化及时调整。</span>
+            <span>更多内容可参考 <a href="https://ng-dh.com">ng导航</a> 的更新记录。</span>
+        </div>
+
+        <hr>
+
+        <p style="margin-bottom: 0.4rem;">导航本身是一种持续的工作——它需要有人不断审视链接是否有效、分类是否合理、描述是否清晰。这种工作不显眼，但它的价值会随着时间积累而放大。如果你对信息整理也有自己的方法或疑问，不妨去 <a href="https://ng-dh.com" style="color:#7a4b2c; text-decoration:none; font-weight:500; border-bottom:2px solid #dbb18f;">ng导航</a> 看看它的组织方式，或许会带来一些启发。</p>
+
+        <div class="closing-line">—— 索引，让信息变得可对话。</div>
+    </div>
+</body>
+</html>
