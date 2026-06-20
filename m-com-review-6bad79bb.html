@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xingkong.com · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: #1f2a3a;
+            background-color: #f8fafc;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #2563eb;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---- Hero 深色头图 ---- */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1a2f46 80%);
+            color: #eaf0f6;
+            padding: 80px 0 72px;
+            text-align: center;
+            border-bottom: 4px solid #3b82f6;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            font-weight: 700;
+            color: #93c5fd;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto 28px;
+            opacity: 0.85;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            margin-top: 12px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        /* ---- 优势区 ---- */
+        .strength-section {
+            background: #ffffff;
+            padding: 64px 0 48px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #0b1a2e;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title small {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #5e6f88;
+            margin-top: 6px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .card {
+            background: #f1f5f9;
+            border-radius: 20px;
+            padding: 32px 24px 28px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 14px;
+        }
+
+        .card p {
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        /* ---- 说明区 ---- */
+        .info-section {
+            background: #ffffff;
+            padding: 20px 0 64px;
+        }
+
+        .info-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .info-main {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .info-main h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #0b1a2e;
+            margin-bottom: 18px;
+        }
+
+        .info-main p {
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .info-highlight {
+            background: #eef2ff;
+            padding: 24px 28px;
+            border-radius: 18px;
+            border-left: 5px solid #2563eb;
+            margin: 24px 0;
+        }
+
+        .info-highlight strong {
+            color: #1e3a8a;
+        }
+
+        .info-side {
+            flex: 1;
+            min-width: 200px;
+            background: #f8fafc;
+            padding: 28px 24px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-side ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-side li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #d1d9e6;
+            font-size: 0.95rem;
+            color: #2d3a4f;
+        }
+
+        .info-side li:last-child {
+            border-bottom: none;
+        }
+
+        .info-side li::before {
+            content: "·";
+            color: #2563eb;
+            font-weight: bold;
+            display: inline-block;
+            width: 18px;
+        }
+
+        /* ---- FAQ 摘要 ---- */
+        .faq-section {
+            background: #f1f5f9;
+            padding: 56px 0 60px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 40px;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-item h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            font-size: 0.92rem;
+            color: #334155;
+        }
+
+        /* ---- 底部链接 ---- */
+        .footer {
+            background: #0b1a2e;
+            color: #cbd5e1;
+            padding: 40px 0 32px;
+            text-align: center;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer a {
+            color: #93c5fd;
+            border-bottom: 1px dotted #93c5fd;
+        }
+
+        .footer a:hover {
+            color: #f1f5f9;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            max-width: 500px;
+            margin-top: 6px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 800px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .info-wrap {
+                flex-direction: column;
+            }
+            .hero {
+                padding: 52px 0 48px;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>关于 <span>xingkong.com</span></h1>
+            <p>一个专注于内容聚合与可信访问的站点。我们整理了实用资源、工具索引与精选信息，为日常浏览提供更清晰的路径。</p>
+            <span class="badge">站点介绍 · 可信说明</span>
+        </div>
+    </section>
+
+    <!-- 优势区 -->
+    <section class="strength-section">
+        <div class="container">
+            <div class="section-title">
+                为什么值得了解
+                <small>清晰 · 务实 · 持续维护</small>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>内容梳理</h3>
+                    <p>对常见需求进行归类整理，减少信息过载，让查找更直接。每项内容均经过人工筛选与核实.</p>
+                </div>
+                <div class="card">
+                    <h3>稳定访问</h3>
+                    <p>站点采用静态部署，结构简洁，加载迅速。无论使用何种设备，均能获得一致的浏览体验.</p>
+                </div>
+                <div class="card">
+                    <h3>持续更新</h3>
+                    <p>我们会定期检查链接有效性，并补充新的实用板块。保持内容时效性，避免陈旧信息堆积.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-wrap">
+                <div class="info-main">
+                    <h2>站点定位与可信说明</h2>
+                    <p>
+                        <strong>xingkong.com</strong> 并非商业化运营平台，而是一个由兴趣驱动的信息整理项目。我们不对用户做任何形式的承诺或担保，但努力保证每一条收录的内容都有明确的来源或依据。
+                    </p>
+                    <p>
+                        如果你正在寻找某个特定方向的信息入口，不妨先通过站内分类浏览。许多资源指向的是公开的官方页面或社区项目，我们仅提供索引，不存储第三方文件。
+                    </p>
+                    <div class="info-highlight">
+                        <strong>一个提醒：</strong> 网络内容变化频繁，部分外部链接可能会失效或变更。如果你发现链接无法访问，欢迎通过站点反馈渠道告知，我们会尽快核实调整。
+                    </div>
+                    <p>
+                        我们一直秉持克制的态度：不放置竞价排名广告，不添加恶意跳转，所有指向均为中性推荐。你可以将 <a href="https://m-com-xingkong.com">xingkong.com</a> 视为一个安静的起点，从这里出发，再去探索更广阔的互联网。
+                    </p>
+                </div>
+                <div class="info-side">
+                    <h4 style="margin-bottom: 12px; font-weight: 500; color: #0b1a2e;">常见收录方向</h4>
+                    <ul>
+                        <li>学习与公开课资源</li>
+                        <li>开发者工具与文档</li>
+                        <li>设计素材与灵感库</li>
+                        <li>极简生活与效率指南</li>
+                        <li>开源项目与社区</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title" style="margin-bottom: 32px;">
+                常见疑问 · 摘要
+                <small>FAQ 精选，更多内容请浏览站点内页</small>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>是否需要注册才能使用？</h4>
+                    <p>不需要。xingkong.com 大部分内容完全公开，无需登录或注册。部分外部链接可能要求其平台账号，但本站本身不收集用户信息。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>内容来源可靠吗？</h4>
+                    <p>我们优先收录知名度高、维护活跃的网站或项目。每一条收录都会注明来源或引用说明，但不对第三方内容负责。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>网站多久更新一次？</h4>
+                    <p>通常每月进行一次整体检查，平时会根据反馈不定时补充新内容或修正失效链接。更新日志可以在站点内找到。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>可以提交推荐或建议吗？</h4>
+                    <p>很欢迎。你可以在站点中找到联系入口，我们会认真阅读每一条消息。不过由于精力有限，不一定能全部回复或采纳。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="footer">
+        <div class="container">
+            <p style="font-size: 1.2rem; font-weight: 400; letter-spacing: 0.5px;">
+                <a href="https://m-com-xingkong.com" style="border-bottom: none;">xingkong.com</a>
+            </p>
+            <p>
+                一个克制的信息索引站 · 无广告 · 无跟踪 · 无诱导
+            </p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 8px;">
+                本页面仅作介绍用途，所有内容仅供参考。外部链接均指向第三方，请自行甄别。
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
